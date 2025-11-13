@@ -8,11 +8,18 @@ on:
             - 'chore/**'
             - main
 
+env:
+    SERVER_IP: '127.0.0.1'
+    SERVER_PORT: 80
+    REPO_NAME: ${{github.repository}}
+
 jobs:
     job-1:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "hello github actions"
+            - run: echo "hello github actions ${{github.actor}}"
+            - run: echo "IP ${{env.SERVER_IP}} port ${{env.SERVER_PORT}}"
+            - run: echo "${{env.REPO_NAME}}"
     job-2:
         runs-on: ubuntu-latest
         steps:
