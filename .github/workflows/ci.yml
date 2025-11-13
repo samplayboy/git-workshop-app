@@ -16,6 +16,7 @@ env:
 jobs:
     job-1:
         runs-on: ubuntu-latest
+        environment: development
         steps:
             - run: echo "hello github actions ${{github.actor}}"
             - run: echo "IP ${{env.SERVER_IP}} port ${{env.SERVER_PORT}}"
