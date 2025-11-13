@@ -25,7 +25,12 @@ jobs:
             - run: echo "${{secrets.API_KEY}}"
     job-2:
         runs-on: ubuntu-latest
+        environment: production
         steps:
-            - name: Build Production
-              run: echo "build job 2"
+            - run: echo "hello github actions ${{github.actor}}"
+            - run: echo "IP ${{env.SERVER_IP}} port ${{env.SERVER_PORT}}"
+            - run: echo "${{env.REPO_NAME}}"
+            - run: echo "${{vars.APP_NAME}}"
+            - run: echo "${{secrets.API_KEY}}"
+              
         
